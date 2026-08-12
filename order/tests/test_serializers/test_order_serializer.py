@@ -1,7 +1,7 @@
 from django.test import TestCase
 
 from order.factories import OrderFactory, ProductFactory
-from order.Serializers import OrderSerializer
+from order.serializers import OrderSerializer
 
 
 class TestOrderSerializer(TestCase):
