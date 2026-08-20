@@ -6,9 +6,9 @@ from product.serializers import ProductSerializer
 
 class TestProductSerializer(TestCase):
     def setUp(self) -> None:
-        self.categories = CategoryFactory(title="technology")
+        self.category = CategoryFactory(title="technology")
         self.product_1 = ProductFactory(
-            title="mouse", price=100, categories=[self.categories]
+            title="mouse", price=100, category=[self.category]
         )
         self.product_serializer = ProductSerializer(self.product_1)
 
@@ -17,4 +17,4 @@ class TestProductSerializer(TestCase):
         self.assertEqual(serializer_data["price"], 100)
         self.assertEqual(serializer_data["title"], "mouse")
         self.assertEqual(
-            serializer_data["categories"][0]["title"], "technology")
+            serializer_data["category"][0]["title"], "technology")

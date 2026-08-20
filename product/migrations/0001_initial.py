@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
                 ('description', models.TextField(blank=True, max_length=500, null=True)),
                 ('price', models.PositiveBigIntegerField(null=True)),
                 ('active', models.BooleanField(default=True)),
-                ('categories', models.ManyToManyField(blank=True, to='product.category')),
+                ('category', models.ManyToManyField(blank=True, to='product.category')),
             ],
         ),
     ]

@@ -15,15 +15,20 @@ class CategoryFactory(factory.django.DjangoModelFactory):
 
 class ProductFactory(factory.django.DjangoModelFactory):
     price = factory.Faker("pyint")
+    category = factory.SubFactory(CategoryFactory)
     title = factory.Faker("pystr")
 
     class Meta:
         model = Product
 
     @factory.post_generation
-    def categories(self, create, extracted, **kwargs):
+    def category(self, create, extracted, **kwargs):
         if not create:
             return
 
         if extracted:
-            self.categories.set(extracted)
+            for category in extracted: 
+                self.category.add(category)
+
+    class Meta:
+        model = Product
