@@ -33,6 +33,11 @@ RUN apt-get update \
 # install poetry
 RUN curl -sSL https://install.python-poetry.org | python
 
+# install postgres dependencies
+RUN apt-get update \
+    && apt-get -y install libpq-dev gcc \
+    && pip install psycopg2
+
 # copy project requirement files here to ensure they will be cached
 WORKDIR $PYSETUP_PATH
 COPY poetry.lock pyproject.toml ./
