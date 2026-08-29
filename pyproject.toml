@@ -5,7 +5,7 @@ description = "Bookstore API"
 authors = [
     {name = "GilsonGarciaJunior",email = "juniorrodrigues082006@gmail.com"}
 ]
-requires-python = ">=3.14"
+requires-python = ">=3.13,<3.15"
 dependencies = [
     "django (>=6.0.7,<7.0.0)",
     "djangorestframework (>=3.17.1,<4.0.0)",
@@ -13,6 +13,8 @@ dependencies = [
     "django-debug-toolbar (>=7.1.1,<8.0.0)",
     "psycopg2-binary (>=2.9.12,<3.0.0)",
     "flake8 (>=7.3.0,<8.0.0)",
+    "gitpython (>=3.1.61,<4.0.0)",
+    "whitenoise (>=6.12.0,<7.0.0)",
 ]
 
 [dependency-groups]
